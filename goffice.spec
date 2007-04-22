@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.3.7
+%define version 0.3.8
 
 %define api 0
 %define major 3
@@ -8,7 +8,7 @@
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: %{name}
 Version: %{version}
-Release: %mkrel 3
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
 # (fc) 0.3.7-3mdv prevent crash for file with graphs with graph plugin disabled (GNOME bug #419955)
 Patch0: goffice-0.3.7-fixcrash.patch
