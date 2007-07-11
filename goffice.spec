@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.4.0
+%define version 0.4.1
 
 %define api 0
 %define major 4
@@ -10,8 +10,6 @@ Name: %{name}
 Version: %{version}
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
-# (fc) 0.3.7-3mdv prevent crash for file with graphs with graph plugin disabled (GNOME bug #419955)
-Patch0: goffice-0.3.7-fixcrash.patch
 License: GPL
 Group: System/Libraries
 Url: http://www.gnome.org
@@ -54,7 +52,6 @@ Development files of the Goffice library.
 
 %prep
 %setup -q
-%patch0 -p1 -b .fixcrash
 
 #fix build
 aclocal-1.8
