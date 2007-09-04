@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.4.2
+%define version 0.4.3
 
 %define api 0
 %define major 4
@@ -52,14 +52,6 @@ Development files of the Goffice library.
 
 %prep
 %setup -q
-
-#fix build
-aclocal-1.8
-automake-1.8
-autoconf
-
-# remove generated files incorrectly in tarball (to be removed with 0.3.8)
-rm -f goffice/goffice-paths.h
 
 %build
 %configure2_5x --enable-gtk-doc
