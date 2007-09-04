@@ -1,8 +1,8 @@
 %define name goffice
-%define version 0.4.3
+%define version 0.5.0
 
-%define api 0
-%define major 4
+%define api 0.5
+%define major 5
 %define libname %mklibname %name %{api}_%major
 
 Summary: Set of document centric objects and utilities for glib/gtk
@@ -83,7 +83,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname-devel
 %defattr(-,root,root)
-%_includedir/libgoffice-0.4/
+%_includedir/libgoffice-%{api}/
 %_libdir/lib*.so
 %attr(644,root,root) %_libdir/lib*a
 %_libdir/pkgconfig/*.pc
