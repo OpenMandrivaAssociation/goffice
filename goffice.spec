@@ -46,6 +46,7 @@ Requires: %libname = %version
 Provides: %name-devel = %version-%release
 Provides: lib%name-devel = %version-%release
 Conflicts: %mklibname -d goffice 0_3
+Conflicts: %mklibname -d goffice 0_4
 
 %description -n %libname-devel
 Development files of the Goffice library.
