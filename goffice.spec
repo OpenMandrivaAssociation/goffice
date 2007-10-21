@@ -1,14 +1,15 @@
 %define name goffice
-%define version 0.5.0
+%define version 0.5.1
 
 %define api 0.5
 %define major 5
 %define libname %mklibname %name %{api}_%major
+%define develname %mklibname -d %name %api
 
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: %{name}
 Version: %{version}
-Release: %mkrel 2
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
 License: GPL
 Group: System/Libraries
@@ -39,7 +40,7 @@ Requires: %name >= %version
 %description -n %libname
 Shared library implementing document centric objects and utilities for glib/gtk
 
-%package -n %libname-devel
+%package -n %develname
 Summary:  %{summary}
 Group: Development/C
 Requires: %libname = %version
@@ -47,8 +48,9 @@ Provides: %name-devel = %version-%release
 Provides: lib%name-devel = %version-%release
 Conflicts: %mklibname -d goffice 0_3
 Conflicts: %mklibname -d goffice 0_4
+Obsoletes: %mklibname -d goffice 0.5_5
 
-%description -n %libname-devel
+%description -n %develname
 Development files of the Goffice library.
 
 %prep
@@ -82,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/libgoffice-%api.so.%{major}*
 %_libdir/%name/%version/
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %_includedir/libgoffice-%{api}/
 %_libdir/lib*.so
