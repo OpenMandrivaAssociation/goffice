@@ -1,8 +1,8 @@
 %define name goffice
-%define version 0.6.4
+%define version 0.7.0
 
-%define api 0.6
-%define major 6
+%define api 0.8
+%define major 7
 %define libname %mklibname %name %{api}_%major
 %define develname %mklibname -d %name %api
 
@@ -11,7 +11,7 @@ Name: %{name}
 Version: %{version}
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
-License: GPL
+License: GPLv2
 Group: System/Libraries
 Url: http://www.gnome.org
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
