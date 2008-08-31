@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.7.0
+%define version 0.7.1
 
 %define api 0.8
 %define major 7
@@ -19,11 +19,11 @@ BuildRequires:	automake1.8
 BuildRequires:	intltool
 BuildRequires: gtk+2-devel
 BuildRequires: libgnomeprint-devel >= 2.8.2
-BuildRequires: libgsf-devel >= 1:1.13.3
+BuildRequires: libgsf-devel >= 1:1.14.9
 BuildRequires: libglade2.0-devel
 BuildRequires: pcre libpcre-devel
 BuildRequires: gtk-doc
-BuildRequires: perl-XML-Parser
+BuildRequires: intltool
 
 %description
 There are common operations for document centric applications that are
@@ -94,6 +94,6 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/lib*.so
 %attr(644,root,root) %_libdir/lib*a
 %_libdir/pkgconfig/*.pc
-%_datadir/gtk-doc/html/goffice/
+%_datadir/gtk-doc/html/goffice-%api/
 
 
