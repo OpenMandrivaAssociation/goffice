@@ -11,6 +11,9 @@ Name: %{name}
 Version: %{version}
 Release: %mkrel 3
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
+# From upstream SVN rev 2268: fix missing arguments that broke build
+# AdamW 2008/12
+Patch0: goffice-0.7.2-argument.patch
 License: GPLv2
 Group: System/Libraries
 Url: http://www.gnome.org
@@ -57,6 +60,7 @@ Development files of the Goffice library.
 
 %prep
 %setup -q
+%patch0 -p1 -b .argument
 
 %build
 %configure2_5x --enable-gtk-doc
