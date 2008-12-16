@@ -9,7 +9,7 @@
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: %{name}
 Version: %{version}
-Release: %mkrel 2
+Release: %mkrel 3
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
 License: GPLv2
 Group: System/Libraries
@@ -24,6 +24,8 @@ BuildRequires: libglade2.0-devel
 BuildRequires: pcre libpcre-devel
 BuildRequires: gtk-doc
 BuildRequires: intltool
+Obsoletes: goffice0.6 < 0.6.5-2
+Obsoletes: goffice21 < 0.2.2-2
 
 %description
 There are common operations for document centric applications that are
