@@ -19,7 +19,7 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	automake1.8
 BuildRequires:	intltool
 BuildRequires: gtk+2-devel
-BuildRequires: libGConf2-devel
+BuildRequires: libGConf2-devel dbus-glib-devel
 BuildRequires: libgsf-devel >= 1:1.14.9
 BuildRequires: libglade2.0-devel
 BuildRequires: pcre libpcre-devel
