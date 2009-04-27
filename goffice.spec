@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.7.4
+%define version 0.7.5
 
 %define api 0.8
 %define major 7
@@ -61,7 +61,9 @@ Development files of the Goffice library.
 %patch1 -p1
 
 %build
-%configure2_5x --enable-gtk-doc
+%configure2_5x 
+#gw http://bugzilla.gnome.org/show_bug.cgi?id=580377
+#--enable-gtk-doc
 %make
 
 %install
