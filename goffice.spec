@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.7.5
+%define version 0.7.6
 
 %define api 0.8
 %define major 7
@@ -9,7 +9,7 @@
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: %{name}
 Version: %{version}
-Release: %mkrel 3
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
 Patch1: goffice-0.7.3-format-strings.patch
 License: GPLv2
