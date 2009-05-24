@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.7.6
+%define version 0.7.7
 
 %define api 0.8
 %define major 7
@@ -11,7 +11,6 @@ Name: %{name}
 Version: %{version}
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.bz2
-Patch1: goffice-0.7.3-format-strings.patch
 License: GPLv2
 Group: System/Libraries
 Url: http://www.gnome.org
@@ -58,7 +57,6 @@ Development files of the Goffice library.
 
 %prep
 %setup -q
-%patch1 -p1
 
 %build
 %configure2_5x 
