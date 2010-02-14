@@ -1,8 +1,8 @@
 %define name goffice
-%define version 0.7.18
+%define version 0.8.0
 
 %define api 0.8
-%define major 7
+%define major 8
 %define libname %mklibname %name %{api}_%major
 %define develname %mklibname -d %name %api
 
