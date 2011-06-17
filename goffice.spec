@@ -1,5 +1,5 @@
 %define name goffice
-%define version 0.8.15
+%define version 0.8.16
 
 %define api 0.8
 %define major 8
