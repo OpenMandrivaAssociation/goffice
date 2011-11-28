@@ -7,14 +7,14 @@
 %define develname %mklibname -d %name %api
 
 Summary: Set of document centric objects and utilities for glib/gtk
-Name: %{name}
-Version: %{version}
-Release: %mkrel 1
+Name: goffice
+Version: 0.8.17
+Release: 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.xz
 License: GPLv2
 Group: System/Libraries
 Url: http://www.gnome.org
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+
 BuildRequires:	automake1.8
 BuildRequires:	intltool
 BuildRequires: gtk+2-devel
@@ -37,7 +37,6 @@ conceptually simple, but complex to implement fully.
 %package -n %libname
 Summary:  %{summary}
 Group: %{group}
-Requires: %name >= %version
 
 %description -n %libname
 Shared library implementing document centric objects and utilities for glib/gtk
@@ -70,34 +69,20 @@ rm -rf $RPM_BUILD_ROOT %name-%version.lang
 %find_lang %name-%version
 find %buildroot -name \*.la|xargs chmod 644
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-%if %mdkversion < 200900
-%post -n %libname -p /sbin/ldconfig
-%endif
-%if %mdkversion < 200900
-%postun -n %libname -p /sbin/ldconfig
-%endif
-
 %files -f %name-%version.lang
-%defattr(-,root,root)
 %doc README NEWS AUTHORS BUGS MAINTAINERS
+%_libdir/%name/%version/
 %_datadir/%name
 %_datadir/pixmaps/%name
 %dir %_libdir/%name/
 
 %files -n %libname
-%defattr(-,root,root)
 %_libdir/libgoffice-%api.so.%{major}*
-%_libdir/%name/%version/
 
 %files -n %develname
-%defattr(-,root,root)
 %_includedir/libgoffice-%{api}/
 %_libdir/lib*.so
 %attr(644,root,root) %_libdir/lib*a
 %_libdir/pkgconfig/*.pc
 %_datadir/gtk-doc/html/goffice-%api/
-
 
