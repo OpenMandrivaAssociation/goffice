@@ -1,10 +1,7 @@
-%define name goffice
-%define version 0.8.17
-
 %define api 0.8
 %define major 8
-%define libname %mklibname %name %{api}_%major
-%define develname %mklibname -d %name %api
+%define libname %mklibname %{name} %{api}_%major
+%define develname %mklibname -d %{name} %api
 
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: goffice
@@ -34,55 +31,54 @@ conceptually simple, but complex to implement fully.
     - load/save documents
     - undo/redo
 
-%package -n %libname
+%package -n %{libname}
 Summary:  %{summary}
 Group: %{group}
 
-%description -n %libname
+%description -n %{libname}
 Shared library implementing document centric objects and utilities for glib/gtk
 
-%package -n %develname
+%package -n %{develname}
 Summary:  %{summary}
 Group: Development/C
-Requires: %libname = %version
-Provides: %name-devel = %version-%release
-Provides: lib%name-devel = %version-%release
+Requires: %{libname} = %{version}
+Provides: %{name}-devel = %{version}-%{release}
+Provides: lib%{name}-devel = %{version}-%{release}
 Conflicts: %mklibname -d goffice 0_3
 Conflicts: %mklibname -d goffice 0_4
 Obsoletes: %mklibname -d goffice 0.5_5
 
-%description -n %develname
+%description -n %{develname}
 Development files of the Goffice library.
 
 %prep
 %setup -q
 
 %build
-%configure2_5x 
-#gw http://bugzilla.gnome.org/show_bug.cgi?id=580377
-#--enable-gtk-doc
+%configure2_5x \
+	--disable-static
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT %name-%version.lang
+rm -rf %{buildroot} %{name}-%{version}.lang
 %makeinstall_std
-%find_lang %name-%version
-find %buildroot -name \*.la|xargs chmod 644
+%find_lang %{name}-%{version}
+find %{buildroot} -name \*.la|xargs chmod 644
 
-%files -f %name-%version.lang
+%files -f %{name}-%{version}.lang
 %doc README NEWS AUTHORS BUGS MAINTAINERS
-%_libdir/%name/%version/
-%_datadir/%name
-%_datadir/pixmaps/%name
-%dir %_libdir/%name/
+%{_libdir}/%{name}/%{version}/
+%{_datadir}/%{name}
+%{_datadir}/pixmaps/%{name}
+%dir %{_libdir}/%{name}/
 
-%files -n %libname
-%_libdir/libgoffice-%api.so.%{major}*
+%files -n %{libname}
+%{_libdir}/libgoffice-%api.so.%{major}*
 
-%files -n %develname
-%_includedir/libgoffice-%{api}/
-%_libdir/lib*.so
-%attr(644,root,root) %_libdir/lib*a
-%_libdir/pkgconfig/*.pc
-%_datadir/gtk-doc/html/goffice-%api/
+%files -n %{develname}
+%{_includedir}/libgoffice-%{api}/
+%{_libdir}/lib*.so
+%attr(644,root,root) %{_libdir}/lib*a
+%{_libdir}/pkgconfig/*.pc
+%{_datadir}/gtk-doc/html/goffice-%api/
 
