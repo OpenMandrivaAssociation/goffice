@@ -1,28 +1,26 @@
 %define api 0.8
 %define major 8
 %define libname %mklibname %{name} %{api}_%major
-%define develname %mklibname -d %{name} %api
+%define develname %mklibname -d %{name} %{api}
 
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: goffice
 Version: 0.8.17
-Release: 2
+Release: 3
 Source0: http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.xz
 License: GPLv2
 Group: System/Libraries
 Url: http://www.gnome.org
 
-BuildRequires:	automake1.8
-BuildRequires:	intltool
-BuildRequires: gtk+2-devel
-BuildRequires: libGConf2-devel dbus-glib-devel
-BuildRequires: libgsf-devel >= 1:1.14.9
-BuildRequires: libglade2.0-devel
-BuildRequires: pcre libpcre-devel
 BuildRequires: gtk-doc
 BuildRequires: intltool
-Obsoletes: goffice0.6 < 0.6.5-2
-Obsoletes: goffice21 < 0.2.2-2
+BuildRequires: gtk+2-devel
+BuildRequires: libGConf2-devel
+BuildRequires: dbus-glib-devel
+BuildRequires: libgsf-devel >= 1:1.14.9
+BuildRequires: libglade2.0-devel
+BuildRequires: pcre
+BuildRequires: libpcre-devel
 
 %description
 There are common operations for document centric applications that are
@@ -43,10 +41,6 @@ Summary:  %{summary}
 Group: Development/C
 Requires: %{libname} = %{version}
 Provides: %{name}-devel = %{version}-%{release}
-Provides: lib%{name}-devel = %{version}-%{release}
-Conflicts: %mklibname -d goffice 0_3
-Conflicts: %mklibname -d goffice 0_4
-Obsoletes: %mklibname -d goffice 0.5_5
 
 %description -n %{develname}
 Development files of the Goffice library.
@@ -62,8 +56,8 @@ Development files of the Goffice library.
 %install
 rm -rf %{buildroot} %{name}-%{version}.lang
 %makeinstall_std
+find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %find_lang %{name}-%{version}
-find %{buildroot} -name \*.la|xargs chmod 644
 
 %files -f %{name}-%{version}.lang
 %doc README NEWS AUTHORS BUGS MAINTAINERS
@@ -73,12 +67,11 @@ find %{buildroot} -name \*.la|xargs chmod 644
 %dir %{_libdir}/%{name}/
 
 %files -n %{libname}
-%{_libdir}/libgoffice-%api.so.%{major}*
+%{_libdir}/libgoffice-%{api}.so.%{major}*
 
 %files -n %{develname}
 %{_includedir}/libgoffice-%{api}/
 %{_libdir}/lib*.so
-%attr(644,root,root) %{_libdir}/lib*a
 %{_libdir}/pkgconfig/*.pc
-%{_datadir}/gtk-doc/html/goffice-%api/
+%{_datadir}/gtk-doc/html/goffice-%{api}/
 
