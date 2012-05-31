@@ -2,10 +2,12 @@
 %define major 9
 %define libname %mklibname %{name} %{api}_%major
 %define develname %mklibname -d %{name} %{api}
+%define gir_major 0.10
+%define girname %mklibname %{name}-gir %{gir_major}
 
 Summary: Set of document centric objects and utilities for glib/gtk
 Name: goffice
-Version: 0.9.2
+Version: 0.9.3
 Release: 1
 License: GPLv2
 Group: System/Libraries
@@ -21,6 +23,7 @@ BuildRequires: pkgconfig(libglade-2.0)
 BuildRequires: pkgconfig(libgsf-1)
 BuildRequires: pkgconfig(libpcre)
 BuildRequires: pkgconfig(librsvg-2.0)
+BuildRequires: pkgconfig(gobject-introspection-1.0)
 
 %description
 There are common operations for document centric applications that are
@@ -35,6 +38,13 @@ Group: %{group}
 
 %description -n %{libname}
 Shared library implementing document centric objects and utilities for glib/gtk
+
+%package -n %{girname}
+Summary:        GObject Introspection interface description for %{name}
+Group:          System/Libraries
+
+%description -n %{girname}
+GObject Introspection interface description for %{name}.
 
 %package -n %{develname}
 Summary:  %{summary}
@@ -67,9 +77,13 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %files -n %{libname}
 %{_libdir}/libgoffice-%{api}.so.%{major}*
 
+%files -n %{girname}
+%{_libdir}/girepository-1.0/GOffice-%{gir_major}.typelib
+
 %files -n %{develname}
 %{_includedir}/libgoffice-%{api}/
 %{_libdir}/lib*.so
 %{_libdir}/pkgconfig/*.pc
 %{_datadir}/gtk-doc/html/goffice-%{api}/
+%{_datadir}/gir-1.0/*.gir
 
