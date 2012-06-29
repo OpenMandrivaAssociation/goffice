@@ -60,7 +60,9 @@ Development files of the Goffice library.
 
 %build
 %configure2_5x \
-	--disable-static
+	--disable-static \
+	--enable-introspection=yes
+
 %make
 
 %install
