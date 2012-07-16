@@ -6,7 +6,7 @@
 
 Summary:	Set of document centric objects and utilities for glib/gtk
 Name:		goffice
-Version:	0.9.4
+Version:	0.9.5
 Release:	1
 License:	GPLv2
 Group:		System/Libraries
