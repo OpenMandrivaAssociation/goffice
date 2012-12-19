@@ -1,3 +1,5 @@
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
 %define api	0.10
 %define major	9
 %define libname	%mklibname %{name} %{api} %major
@@ -6,23 +8,23 @@
 
 Summary:	Set of document centric objects and utilities for glib/gtk
 Name:		goffice
-Version:	0.9.5
+Version:	0.10.0
 Release:	1
 License:	GPLv2
 Group:		System/Libraries
 Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gconf-2.0)
+BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(libgsf-1)
 BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(librsvg-2.0)
-BuildRequires:	pkgconfig(gobject-introspection-1.0)
 
 %description
 There are common operations for document centric applications that are
