@@ -17,6 +17,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/%{url_ver}/%{name}-%{ver
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
+BuildRequires:	perl-IO-Compress
 BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
@@ -25,7 +26,6 @@ BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(libgsf-1)
 BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(librsvg-2.0)
-BuildRequires:	perl-IO-Compress
 
 %description
 There are common operations for document centric applications that are
@@ -70,8 +70,6 @@ Development files of the Goffice library.
 
 %install
 %makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
-
 %find_lang %{name}-%{version}
 
 %files -f %{name}-%{version}.lang
