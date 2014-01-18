@@ -2,15 +2,15 @@
 
 %define api	0.10
 %define major	10
-%define libname	%mklibname %{name} %{api} %major
+%define libname	%mklibname %{name} %{api} %{major}
 %define devname	%mklibname -d %{name} %{api}
 %define girname	%mklibname %{name}-gir %{api}
 
-Summary:	Set of document centric objects and utilities for glib/gtk
+Summary:	Set of document centric objects and utilities for GLib/GTK
 Name:		goffice
-Version:	0.10.7
-Release:	5
-License:	GPLv2
+Version:	0.10.9
+Release:	1
+License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/%{url_ver}/%{name}-%{version}.tar.xz
@@ -34,12 +34,25 @@ conceptually simple, but complex to implement fully.
  - load/save documents
  - undo/redo
 
+%files -f %{name}-%{version}.lang
+%doc README NEWS AUTHORS BUGS MAINTAINERS
+%{_libdir}/%{name}/%{version}/
+%dir %{_libdir}/%{name}/
+
+#----------------------------------------------------------------------------
+
 %package -n %{libname}
 Summary:	%{summary}
 Group:		%{group}
 
 %description -n %{libname}
-Shared library implementing document centric objects and utilities for glib/gtk
+Shared library implementing document centric objects and utilities for
+GLib/GTK.
+
+%files -n %{libname}
+%{_libdir}/libgoffice-%{api}.so.%{major}*
+
+#----------------------------------------------------------------------------
 
 %package -n %{girname}
 Summary:	GObject Introspection interface description for %{name}
@@ -48,15 +61,29 @@ Group:		System/Libraries
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
+%files -n %{girname}
+%{_libdir}/girepository-1.0/GOffice-%{api}.typelib
+
+#----------------------------------------------------------------------------
+
 %package -n %{devname}
 Summary:	%{summary}
 Group:		Development/C
-Requires:	%{libname} = %{version}
-Requires:	%{girname} = %{version}
-Provides:	%{name}-devel = %{version}-%{release}
+Requires:	%{libname} = %{EVRD}
+Requires:	%{girname} = %{EVRD}
+Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 Development files of the Goffice library.
+
+%files -n %{devname}
+%{_includedir}/libgoffice-%{api}/
+%{_libdir}/lib*.so
+%{_libdir}/pkgconfig/*.pc
+%{_datadir}/gtk-doc/html/goffice-%{api}/
+%{_datadir}/gir-1.0/*.gir
+
+#----------------------------------------------------------------------------
 
 %prep
 %setup -q
@@ -71,22 +98,4 @@ Development files of the Goffice library.
 %install
 %makeinstall_std
 %find_lang %{name}-%{version}
-
-%files -f %{name}-%{version}.lang
-%doc README NEWS AUTHORS BUGS MAINTAINERS
-%{_libdir}/%{name}/%{version}/
-%dir %{_libdir}/%{name}/
-
-%files -n %{libname}
-%{_libdir}/libgoffice-%{api}.so.%{major}*
-
-%files -n %{girname}
-%{_libdir}/girepository-1.0/GOffice-%{api}.typelib
-
-%files -n %{devname}
-%{_includedir}/libgoffice-%{api}/
-%{_libdir}/lib*.so
-%{_libdir}/pkgconfig/*.pc
-%{_datadir}/gtk-doc/html/goffice-%{api}/
-%{_datadir}/gir-1.0/*.gir
 
