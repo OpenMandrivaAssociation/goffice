@@ -8,8 +8,8 @@
 
 Summary:	Set of document centric objects and utilities for GLib/GTK
 Name:		goffice
-Version:	0.10.9
-Release:	3
+Version:	0.10.18
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
@@ -38,6 +38,7 @@ conceptually simple, but complex to implement fully.
 %doc README NEWS AUTHORS BUGS MAINTAINERS
 %{_libdir}/%{name}/%{version}/
 %dir %{_libdir}/%{name}/
+%{_datadir}/%{name}
 
 #----------------------------------------------------------------------------
 
@@ -89,6 +90,8 @@ Development files of the Goffice library.
 %setup -q
 
 %build
+
+export CC=gcc
 %configure2_5x \
 	--disable-static \
 	--enable-introspection=yes

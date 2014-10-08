@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   goffice-0.10.9.tar.xz: b99b1cdc42b27533828ff963793e60c35eab5861
+sources:
+  goffice-0.10.18.tar.xz: 7a77981d7484354639cd4fbae7c942bace532acb
