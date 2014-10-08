@@ -26,6 +26,7 @@ BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(libgsf-1)
 BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(librsvg-2.0)
+BuildRequires:	pkgconfig(libxslt)
 
 %description
 There are common operations for document centric applications that are
