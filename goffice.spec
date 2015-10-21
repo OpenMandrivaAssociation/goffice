@@ -6,10 +6,12 @@
 %define devname	%mklibname -d %{name} %{api}
 %define girname	%mklibname %{name}-gir %{api}
 
+%define _disable_rebuild_configure 1
+
 Summary:	Set of document centric objects and utilities for GLib/GTK
 Name:		goffice
-Version:	0.10.22
-Release:	2
+Version:	0.10.24
+Release:	1
 License:	GPLv2+
 Group:		System/Libraries
 Url:		http://www.gnome.org
