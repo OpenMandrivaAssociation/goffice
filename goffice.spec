@@ -12,7 +12,7 @@
 
 Summary:	Set of document centric objects and utilities for GLib/GTK
 Name:		goffice
-Version:	0.10.24
+Version:	0.10.31
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -23,10 +23,8 @@ BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	perl-IO-Compress
 BuildRequires:	pkgconfig(dbus-glib-1)
-BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
-BuildRequires:	pkgconfig(libglade-2.0)
 BuildRequires:	pkgconfig(libgsf-1)
 BuildRequires:	pkgconfig(libpcre)
 BuildRequires:	pkgconfig(librsvg-2.0)
