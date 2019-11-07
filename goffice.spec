@@ -12,7 +12,7 @@
 
 Summary:	Set of document centric objects and utilities for GLib/GTK
 Name:		goffice
-Version:	0.10.45
+Version:	0.10.46
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
@@ -94,14 +94,14 @@ Development files of the Goffice library.
 
 %build
 
-export CC=gcc
-%configure2_5x \
+#export CC=gcc
+%configure \
 	--disable-static \
 	--enable-introspection=yes
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name}-%{version}
 
