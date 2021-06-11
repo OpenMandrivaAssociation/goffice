@@ -1,6 +1,7 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define debug_package %{nil}
+#define debug_package %{nil}
+%define _empty_manifest_terminate_build 0
 
 %define api	0.10
 %define major	10
