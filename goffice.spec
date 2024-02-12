@@ -13,12 +13,12 @@
 
 Summary:	Set of document centric objects and utilities for GLib/GTK
 Name:		goffice
-Version:	0.10.56
+Version:	0.10.57
 Release:	1
 License:	GPLv2+
 Group:		System/Libraries
-Url:		http://www.gnome.org
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/goffice/%{url_ver}/%{name}-%{version}.tar.xz
+Url:		https://www.gnome.org
+Source0:	https://ftp.gnome.org/pub/GNOME/sources/goffice/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
