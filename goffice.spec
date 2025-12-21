@@ -20,6 +20,11 @@ Group:		System/Libraries
 Url:		https://www.gnome.org
 Source0:	https://ftp.gnome.org/pub/GNOME/sources/goffice/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	perl-IO-Compress
